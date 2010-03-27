@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+<id>com.envato.tutsplus</id>
+<name>TutsPlus</name>
+<version>1.0</version>
+<publisher>Jeffrey Way</publisher>
+<url>http://net.tutsplus.com</url>
+<description>For a tutorial on Nettuts+</description>
+<copyright>2010</copyright>
+<icon>appicon.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <analytics>true</analytics>
+<guid>4e0efc23-39eb-4d99-a230-468570193538</guid>
+</ti:app>
