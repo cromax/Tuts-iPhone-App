@@ -1,18 +1,7 @@
-Welcome to your Appcelerator Titanium Mobile Project
+This is an iPhone app, built with Titanium, that will be for a future tutorial on Nettuts+.
+It's a simple RSS reader for each Tuts site. 
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
+<strong>Please note that it is currently under construction, and needs improvement. </strong>
 
-
-
-----------------------------------
-Stuff our legal folk make us say:
-
-Appcelerator, Appcelerator Titanium and associated marks and logos are 
-trademarks of Appcelerator, Inc. 
-
-Titanium is Copyright (c) 2009-2010 by Appcelerator, Inc. All Rights Reserved.
-
-Titanium is licensed under the Apache Public License (Version 2). Please
-see the LICENSE file for the full license.
-
+To Install...
+Fork the project, and within Titanium Developer, click "Import Project". 
