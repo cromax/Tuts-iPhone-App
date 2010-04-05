@@ -18,6 +18,10 @@ NSString * const TI_APPLICATION_COPYRIGHT = @"2010";
 NSString * const TI_APPLICATION_GUID = @"4e0efc23-39eb-4d99-a230-468570193538";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 
+#ifdef DEBUG
+NSString * const TI_APPLICATION_RESOURCE_DIR = @"/Users/way/Desktop/Tuts_iPhone/build/iphone/build/Debug-iphonesimulator/TutsPlus.app";
+#endif
+
 int main(int argc, char *argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
