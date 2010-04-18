@@ -1,3 +1,6 @@
+// This window presents options, where the user can choose whether to 
+// view by most recent items, or by category.
+
 var rows = [
 	{ title : 'Most Recent', hasChild:true, path : 'getFeed.js' },
 	{ title : 'View Categories', hasChild:true, path : 'categories.js' },	
@@ -6,6 +9,7 @@ var rows = [
 var tableView = Ti.UI.createTableView({
 	data : rows
 });
+
 Ti.UI.currentWindow.add(tableView);
 
 tableView.addEventListener('click', function(e) {

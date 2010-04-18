@@ -1,0 +1,18 @@
+Hey guys - I've no doubt that this can be cleaned up. But this was the natural way that I approached it, after about a week with Titanium.
+
+This app doesn't integrate directly with the Tuts websites. It just pulls from RSS feeds -- so is bound to about 20 most recent articles per site.
+
+Things I'm Concerned About:
+
+1) Performance - New calls to YQL if a tuts site is closed and then reopened. Maybe better way to use local storage for this? Haven't gotten that far in my Ti studies yet. :)
+
+2) Haven't looked into iPad compliance yet. 
+
+3) Is it a best practice to put every new window in its own JavaScript file? Not sure - but have done so.
+
+4) Couldn't figure out how to reference variables from within an .html webview. Seems to be different than the pre 1.0 days?
+
+5) I plan on doing some more formatting for the article webviews. Have only done minimal styling so far. Especially needs work with code tutorials with code snippets.
+
+
+Thanks!!

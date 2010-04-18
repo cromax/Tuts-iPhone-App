@@ -1,39 +1,40 @@
 // Displays a list of available categories for the selected site.
-var win = Titanium.UI.currentWindow,
+var win = Ti.UI.currentWindow,
 	query;
 
-// Add loading icons. Note - needs to be removed after data is loaded, with loadingIcon.hide().
+// Add loading icon. Note - needs to be removed after data is loaded, with loadingIcon.hide().
 Ti.include('loading.js');
 
- // Make YQL query to get feed.
-query = "Select title, guid, category from rss where url='http://feeds.feedburner.com/" + Titanium.App.Properties.getString('websiteName') + "tuts' | unique(field='guid') | unique(field='category')";
+ // Make YQL query to get feed. websiteName is equal to the tuts site prefix, like Net, Vector, Psd, etc. So, like feeds.feedburner.com/nettuts
+query = "Select title, guid, category from rss where url='http://feeds.feedburner.com/" + Ti.App.Properties.getString('websiteName') + "tuts' | unique(field='guid') | unique(field='category')";
 
-Titanium.Yahoo.yql(query, function(e) {		
+Ti.Yahoo.yql(query, function(e) {		
 	var data = e.data,
-		tableView = Titanium.UI.createTableView();
+		tableView = Ti.UI.createTableView();
 
+	// Filter through the items in the feed and create new tableviewrows.
 	for ( var i = 0; i < data.item.length; i++ ) {
-		var newRow = Titanium.UI.createTableViewRow({
+		var newRow = Ti.UI.createTableViewRow({
 			title : data.item[i].category,
-			test : 'getByCategory.js',
+			path : 'getByCategory.js',
 			url : data.item[i].guid,
 		    hasChild : true
 		});
-
 		tableView.appendRow(newRow);
 	}
 		
 	// Populate a tableview with the titles
-	Titanium.UI.currentWindow.add(tableView);	
+	Ti.UI.currentWindow.add(tableView);	
 	
+	// Get rid of loading icon now that the rows have been populated.
 	loadingIcon.hide();
 	
 	// When a title is clicked, open a new window and pass the details of the selected posting.
 	tableView.addEventListener('click', function(e) {
 
-		if ( e.rowData.test ) {
-			var newWin = Titanium.UI.createWindow({
-				url : e.rowData.test, 
+		if ( e.rowData.path ) {
+			var newWin = Ti.UI.createWindow({
+				url : e.rowData.path, 
 				title : e.rowData.title,
 				barColor : Ti.UI.currentWindow.barColor
 			});
@@ -41,7 +42,7 @@ Titanium.Yahoo.yql(query, function(e) {
 			newWin.category = e.rowData.title;
 		}
 
-		Titanium.UI.currentTab.open( newWin, { animated : true } );
+		Ti.UI.currentTab.open( newWin, { animated : true } );
 		
 	});
 	

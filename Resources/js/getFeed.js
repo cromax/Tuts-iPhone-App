@@ -6,7 +6,7 @@ var win = Ti.UI.currentWindow,
 Ti.include('loading.js');
 
  // YQL query to get feed. 
-// If selected ALL, queries a feed created with Yahoo pipes, containing all of the Tuts sites.
+// If selected ALL, queries a feed created with Yahoo pipes, containing all of the Tuts sites grouped into one RSS feed.
 // Otherwise, just reference that site's respective RSS feed.
 query = (Ti.App.Properties.getString('websiteName') === 'all')
 	? "Select title, encoded, guid.content from rss where url='http://pipes.yahoo.com/pipes/pipe.run?_id=de585e903ac6feb6388eccbf43d3e208&_render=rss'"
@@ -27,7 +27,7 @@ Ti.Yahoo.yql(query, function(e) {
 			theTitle : data.item[i].title
 		});
 
-		// If viewing ALL, add a thumbnail with each article.
+		// If viewing ALL, add a thumbnail, with each article, of the posting's respective Tuts site.
 		if ( Ti.App.Properties.getString('websiteName') === 'all' ) {
 			// .guid equals the url to the posting. I need to determine which Tuts 
 			// site the url links to. Then I grab the name (like NET or PSD), and
@@ -66,6 +66,7 @@ Ti.Yahoo.yql(query, function(e) {
 				barColor : Ti.UI.currentWindow.barColor
 			});
 						
+			// Add variables for the description and the url.
 			newWin.desc = e.rowData.desc;
 			newWin.theUrl = e.rowData.url;
 		}
